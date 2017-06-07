@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-use App\XML\XMLParser;
+use App\XML\XmlParser;
 
 class HomeController extends Controller
 {
@@ -9,7 +9,7 @@ class HomeController extends Controller
     {
         $path = 'xml/curriculo.xml';
 
-        $parser = new XMLParser($path);
+        $parser = new XmlParser($path);
 
         echo "<pre>";
         var_dump(json_decode($parser->toJSON(), true));
