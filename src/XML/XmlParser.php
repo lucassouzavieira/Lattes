@@ -26,7 +26,7 @@ class XmlParser
      * XMLParser constructor.
      * @param string $file
      */
-    public function __construct(string $file, string $basePath = "../../xml")
+    public function __construct(string $file, string $basePath = '../../xml')
     {
         $this->filePath = $file;
         $this->basePath = $basePath;
@@ -47,7 +47,7 @@ class XmlParser
      * Load XML file
      * @return \SimpleXMLElement
      */
-    private function loadXmlFile()
+    private function loadXmlFile(): \SimpleXMLElement
     {
         $fileContents = file_get_contents($this->filePath);
         $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
@@ -58,8 +58,9 @@ class XmlParser
      * Normalize XML document
      * @param $xmlObject
      * @param $result
+     * @return void
      */
-    private function normalizeXml($xmlObject, &$result)
+    private function normalizeXml($xmlObject, &$result): void
     {
         $data = $xmlObject;
 
