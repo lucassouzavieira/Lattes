@@ -1,23 +1,19 @@
 <?php
 namespace App\Controllers;
 
+use App\XML\XMLParser;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        chdir(dirname(dirname(__DIR__)));
-        $path = 'xml/rogeriomoreiralima.xml';
+        $path = 'xml/curriculo.xml';
 
-        $xml = simplexml_load_file($path);
+        $parser = new XMLParser($path);
 
         echo "<pre>";
-        var_dump(json_encode($xml, true));
-        die();
+        var_dump(json_decode($parser->toJSON(), true));
 
-        return $this->app['twig']->render('welcome.twig', [
-            'title' => 'Welcome page',
-            'appname' => $this->app['config']['application']['name'],
-            'welcome' => 'Welcome to Silex Arango Skeleton'
-        ]);
+        return false;
     }
 }
